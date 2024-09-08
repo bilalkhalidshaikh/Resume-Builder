@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Bilal Khalid - Professional Resume</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="./src/styles/styles.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Header -->
+    <div class="resume-header">
+      <div class="profile-info">
+        <div class="profile-pic">
+          <img
+            src="https://yt3.ggpht.com/-GhFCaSPC3Ns/AAAAAAAAAAI/AAAAAAAAAAA/lyBDET_Q8lo/s900-c-k-no-mo-rj-c0xffffff/photo.jpg"
+            alt="Profile Picture"
+            width="100%"
+          />
+        </div>
+        <div class="profile-details">
+          <h1>Muhammad Bilal Khalid</h1>
+          <p>Master of Computer Science</p>
+          <!-- Social Media Icons -->
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/bilalkhalidshaikh/" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/bilalkhalidshaikh/" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://wa.me/923183052976" target="_blank">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar for Section Navigation -->
+    <div class="sidebar">
+      <ul>
+        <li><a href="#" id="skillsBtn"><i class="fas fa-tools"></i> Skills</a></li>
+        <li><a href="#" id="educationBtn"><i class="fas fa-graduation-cap"></i> Education</a></li>
+        <li><a href="#" id="experienceBtn"><i class="fas fa-briefcase"></i> Experience</a></li>
+        <li><a href="#" id="contactBtn"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+      <!-- Skills Section -->
+      <div class="section card glass" id="skillsSection">
+        <h2>Skills</h2>
+        <div class="skill-container">
+          <button class="skill-btn"><i class="fas fa-code"></i> HTML</button>
+          <button class="skill-btn"><i class="fas fa-paint-brush"></i> CSS</button>
+          <button class="skill-btn"><i class="fas fa-laptop-code"></i> JavaScript</button>
+          <button class="skill-btn"><i class="fas fa-terminal"></i> TypeScript</button>
+          <button class="skill-btn"><i class="fas fa-css3"></i> Tailwind CSS</button>
+          <button class="skill-btn"><i class="fab fa-react"></i> React.js</button>
+          <button class="skill-btn"><i class="fab fa-node-js"></i> Node.js</button>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+
+      <!-- Education Section -->
+      <div class="section card glass" id="educationSection">
+        <h2>Education</h2>
+        <ul>
+          <li>Master of Computer Science, Universität Rostock</li>
+          <li>Bachelor of Information Technology, Berlin University</li>
+        </ul>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+
+      <!-- Experience Section -->
+      <div class="section card glass" id="experienceSection">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item left">
+            <div class="content">
+              <h3>Software Developer at ABC Corp (2022 - Present)</h3>
+              <p>
+                Developing full-stack applications and ensuring seamless user
+                experiences for clients.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="content">
+              <h3>Junior Developer at XYZ Solutions (2020 - 2022)</h3>
+              <p>
+                Assisted in building enterprise-level software systems and
+                contributed to the front-end development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <!-- Contact Section -->
+      <div class="section card glass contact-form" id="contactSection">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="name" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" name="email" placeholder="Your Email" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-comment"></i>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+          </div>
+          <input type="submit" value="Send Message" />
+          <div class="validation-message" id="validationMessage"></div>
+        </form>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+  </div>
+
+  <!-- Floating Menu at Bottom Left -->
+  <div class="floating-menu" id="floatingMenu">
+    <i class="fas fa-cog"></i>
+    <div class="menu-content" id="menuContent">
+      <button id="themeSwitchButton">Light Mode</button>
+      <button id="toggleSectionsButton">Hide Sections</button>
+    </div>
+  </div>
+
+  <script src="./src/dist/script.js"></script>
+</body>
+</html>

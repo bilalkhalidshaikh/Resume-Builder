@@ -1,0 +1,383 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0;
+  }
+  
+  a {
+    color: #1abc9c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #16a085;
+  }
+  
+  /* Profile Section */
+  .profile-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .profile-pic {
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #34495e;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .profile-details h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .profile-details p {
+    font-size: 1.2em;
+    color: #bdc3c7;
+  }
+  
+  /* Social Media Links */
+  .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .social-links a {
+    font-size: 1.5em;
+    color: #ecf0f1;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #1abc9c;
+  }
+  
+  
+  /* Sidebar for Sections */
+  .sidebar {
+    position: fixed;
+    top: 180px;
+    left: 0;
+    width: 200px;
+    background-color: #34495e;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #1abc9c;
+  }
+  
+  /* Content Area with Grid Layout */
+  .content {
+    margin-left: 220px; /* Reserve space for the sidebar */
+    padding: 20px;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Glassmorphism Effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .glass:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Skills Buttons */
+  .skill-btn {
+    background-color: #34495e;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 5px;
+  }
+  
+  .skill-btn:hover {
+    background-color: #1abc9c;
+    transform: scale(1.1);
+  }
+  
+  /* Contact Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .input-group i {
+    color: #1abc9c;
+  }
+  
+  .contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #34495e;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+  }
+  
+  .contact-form input[type="submit"] {
+    background-color: #1abc9c;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-form input[type="submit"]:hover {
+    background-color: #16a085;
+  }
+  
+  .validation-message {
+    color: red;
+    font-size: 0.9em;
+  }
+  
+  /* Floating Menu */
+  .floating-menu {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+  }
+  
+  .floating-menu i {
+    font-size: 2em;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+  
+  .floating-menu:hover i {
+    transform: rotate(90deg);
+  }
+  
+  .menu-content {
+    display: none;
+    background-color: #34495e;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .menu-content button {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .menu-content button:hover {
+    background-color: #16a085;
+  }
+  
+  /* Dark Mode */
+  .dark-mode {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+  }
+  
+  .dark-mode .glass {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  
+  .dark-mode .skill-btn {
+    background-color: #f0f0f0;
+    color: #2c3e50;
+  }
+  
+  .dark-mode .contact-form input, .dark-mode .contact-form textarea {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+  }
+  
+
+  /* Media Queries for Tablet and Mobile Views */
+
+/* Tablet View - Adjust layout for tablets */
+@media (max-width: 992px) {
+    .profile-info {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .profile-details h1 {
+      font-size: 2rem;
+    }
+    
+    .profile-details p {
+      font-size: 1rem;
+    }
+    
+    .sidebar {
+      position: relative;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    
+    .content {
+      margin-left: 0;
+    }
+    
+    .floating-menu {
+      left: 10px;
+      bottom: 10px;
+    }
+  
+    .floating-menu i {
+      font-size: 1.5em;
+    }
+  }
+  
+  /* Mobile View - Stack everything vertically */
+  @media (max-width: 768px) {
+    .sidebar {
+      position: static;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 10px;
+      border-radius: 0;
+    }
+  
+    .content {
+      margin-left: 0;
+      padding: 10px;
+    }
+    
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .profile-details h1 {
+      font-size: 1.5rem;
+    }
+    
+    .profile-details p {
+      font-size: 0.9rem;
+    }
+    
+    .skill-container {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .skill-btn {
+      width: 100%;
+      margin: 10px 0;
+    }
+    
+    .glass {
+      padding: 15px;
+    }
+    
+    .contact-form input, .contact-form textarea {
+      font-size: 0.9rem;
+    }
+    
+    .contact-form input[type="submit"] {
+      padding: 10px;
+    }
+  }
+  
+  /* Small Mobile View - Stack everything in a single column */
+  @media (max-width: 480px) {
+    .profile-info {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .profile-details h1 {
+      font-size: 1.2rem;
+    }
+    
+    .profile-details p {
+      font-size: 0.8rem;
+    }
+    
+    .sidebar {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .skill-btn {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+    
+    .glass {
+      padding: 10px;
+    }
+    
+    .floating-menu {
+      left: 5px;
+      bottom: 5px;
+    }
+    
+    .floating-menu i {
+      font-size: 1.2em;
+    }
+  }
+  
