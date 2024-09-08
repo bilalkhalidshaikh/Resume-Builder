@@ -107,6 +107,9 @@
     margin-left: 220px; /* Reserve space for the sidebar */
     padding: 20px;
   }
+  .section {
+    margin-bottom: 20px; /* Add proper spacing between sections */
+  }
   
   .grid-container {
     display: grid;
@@ -157,6 +160,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 20px;
   }
   
   .input-group i {
@@ -278,6 +282,8 @@
     .content {
       margin-left: 0;
     }
+
+
     
     .floating-menu {
       left: 10px;
@@ -380,4 +386,248 @@
       font-size: 1.2em;
     }
   }
+  
+
+
+
+  /* Mileston3 */
+  /* Resume Form */
+.resume-form {
+    margin: 20px;
+    padding: 20px;
+    background-color: #34495e;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .resume-form input, .resume-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ecf0f1;
+  }
+  
+  .resume-form button {
+    background-color: #1abc9c;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+  /* Message and Button Styling for Create Resume */
+.create-resume-message {
+    text-align: center;
+    margin: 50px 0;
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .create-resume-message h2 {
+    font-size: 1.8rem;
+    color: #1abc9c;
+  }
+  
+  .create-resume-message p {
+    font-size: 1rem;
+    color: #ecf0f1;
+    margin: 15px 0;
+  }
+  
+  .resume-button {
+    background-color: #1abc9c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .resume-button:hover {
+    background-color: #16a085;
+  }
+  
+  
+  /* Mileston3 */
+
+
+  @media (max-width: 768px) {
+    .sidebar {
+      position: static;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 10px;
+    }
+  
+    .content {
+      margin-left: 0;
+      padding: 10px;
+    }
+  
+    .profile-info {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .profile-details h1 {
+      font-size: 1.5rem;
+    }
+  
+    .profile-details p {
+      font-size: 1rem;
+    }
+  
+    .skill-btn {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .profile-info {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .profile-details h1 {
+      font-size: 1.2rem;
+    }
+  
+    .profile-details p {
+      font-size: 0.8rem;
+    }
+  
+    .sidebar {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      gap: 15px;
+    }
+  
+    .skill-btn {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  
+    .floating-menu {
+      left: 5px;
+      bottom: 5px;
+    }
+  
+    .floating-menu i {
+      font-size: 1.2em;
+    }
+  }
+/* Dark Mode */
+.dark-mode input, .dark-mode textarea {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+    border: 1px solid #2c3e50;
+}
+
+.dark-mode button {
+    background-color: #ffffff;
+    color: #2c3e50;
+}
+
+/* Light Mode */
+input, textarea {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border: 1px solid #ecf0f1;
+}
+
+button {
+    background-color: #34495e;
+    color: #ffffff;
+}
+
+/* Social Media Icons */
+.social-links a {
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #1abc9c;
+}
+/* Social Media Icons */
+.social-links a {
+    transition: color 0.3s ease;
+  }
+  
+  .dark-mode .social-links a {
+    color: #2c3e50;
+  }
+  
+  .light-mode .social-links a {
+    color: #ecf0f1;
+  }
+  
+  /* Form Labels */
+  label {
+    color: #ecf0f1; /* Default Dark Mode */
+    transition: color 0.3s ease;
+  }
+  
+  .dark-mode label {
+    color: #2c3e50; /* Light Mode Label Color */
+  }
+  
+  /* Section Titles */
+  h2 {
+    transition: color 0.3s ease;
+  }
+  
+  .dark-mode h2 {
+    color: #2c3e50;
+  }
+  
+  .light-mode h2 {
+    color: #ecf0f1;
+  }
+  
+  /* Floating Settings Icon */
+  .floating-menu i {
+    transition: color 0.3s ease;
+  }
+  
+  .dark-mode .floating-menu i {
+    color: #2c3e50;
+  }
+  
+  .light-mode .floating-menu i {
+    color: #ecf0f1;
+  }
+/* Form Titles - Ensure visibility in both light and dark modes */
+h2 {
+    color: #ecf0f1; /* Default for Dark Mode */
+    transition: color 0.3s ease;
+}
+
+.dark-mode h2 {
+    color: #2c3e50; /* Title color in Light Mode */
+}
+
+.light-mode h2 {
+    color: #2c3e50; /* Title color in Light Mode */
+}
+  
+h3 {
+    color: #ecf0f1; /* Default for Dark Mode */
+    transition: color 0.3s ease;
+}
+
+.dark-mode h3 {
+    color: #2c3e50; /* Title color in Light Mode */
+}
+
+.light-mode h3 {
+    color: #2c3e50; /* Title color in Light Mode */
+}
   

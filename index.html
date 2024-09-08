@@ -28,7 +28,7 @@
         </div>
         <div class="profile-details">
           <h1>Muhammad Bilal Khalid</h1>
-          <p>Master of Computer Science</p>
+          <p>GenAI Web3.0 Developer</p>
           <!-- Social Media Icons -->
           <div class="social-links">
             <a href="https://www.linkedin.com/in/bilalkhalidshaikh/" target="_blank">
@@ -52,8 +52,10 @@
         <li><a href="#" id="educationBtn"><i class="fas fa-graduation-cap"></i> Education</a></li>
         <li><a href="#" id="experienceBtn"><i class="fas fa-briefcase"></i> Experience</a></li>
         <li><a href="#" id="contactBtn"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><a href="#" id="createResumeBtnSidebar"><i class="fas fa-file-alt"></i> Create Resume</a></li>
       </ul>
     </div>
+    
 
     <!-- Content Area -->
     <div class="content">
@@ -70,10 +72,6 @@
           <button class="skill-btn"><i class="fab fa-node-js"></i> Node.js</button>
         </div>
       </div>
-      <br/>
-      <br/>
-      <br/>
-
       <!-- Education Section -->
       <div class="section card glass" id="educationSection">
         <h2>Education</h2>
@@ -82,10 +80,6 @@
           <li>Bachelor of Information Technology, Berlin University</li>
         </ul>
       </div>
-      <br/>
-      <br/>
-      <br/>
-
       <!-- Experience Section -->
       <div class="section card glass" id="experienceSection">
         <h2>Experience</h2>
@@ -110,9 +104,6 @@
           </div>
         </div>
       </div>
-      <br/>
-      <br/>
-      <br/>
       <!-- Contact Section -->
       <div class="section card glass contact-form" id="contactSection">
         <h2>Contact Me</h2>
@@ -133,9 +124,64 @@
           <div class="validation-message" id="validationMessage"></div>
         </form>
       </div>
-      <br/>
-      <br/>
-      <br/>
+
+      <!-- Button and Message to Create Resume -->
+<div id="createResumeMessage" class="create-resume-message">
+  <h2>Wanna create your own professional resume?</h2>
+  <p>No more worries! You're in the right place. Provide your details, and I'll generate a professional, interactive resume just for you. Don't worry about security—your data is safe with us!</p>
+  <button id="showFormButton" class="resume-button">Create Your Resume</button>
+</div>
+      <!-- Milestone 3 - Dynamic Resume Generation Form -->
+  <!-- Milestone 3 - Dynamic Resume Generation Form -->
+<div id="resumeFormContainer" class="resume-form" style="display: none;">
+  <h2 class="form-titles">Start Building Your Professional Profile</h2>
+  <form id="resumeForm">
+    <!-- Personal Information -->
+    <div>
+      <label for="name">Full Name:</label>
+      <input type="text" id="nameInput" name="name" placeholder="Enter your name" required />
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="emailInput" name="email" placeholder="Enter your email" required />
+    </div>
+
+    <!-- Education Section -->
+    <h3>Education</h3>
+    <div id="educationFields">
+      <div class="educationField">
+        <input type="text" placeholder="Degree" name="degree" required />
+        <input type="text" placeholder="Institution" name="institution" required />
+        <input type="text" placeholder="Year" name="year" required />
+      </div>
+    </div>
+    <button type="button" id="addEducation">Add More Education</button>
+
+    <!-- Work Experience Section -->
+    <h3>Work Experience</h3>
+    <div id="experienceFields">
+      <div class="experienceField">
+        <input type="text" placeholder="Job Title" name="jobTitle" required />
+        <input type="text" placeholder="Company" name="company" required />
+        <input type="text" placeholder="Years" name="years" required />
+      </div>
+    </div>
+    <button type="button" id="addExperience">Add More Experience</button>
+
+    <!-- Skills Section -->
+    <h3>Skills</h3>
+    <input type="text" id="skillsInput" name="skills" placeholder="Enter skills (comma separated)" required />
+
+    <!-- Single Button to Generate Resume -->
+    <button type="submit" id="generateResumeBtn">Generate My Resume</button>
+</form>
+
+</div>
+
+          <!-- Milestone 3 - Dynamic Resume Generation Form -->
+
+  </div>
+
     </div>
   </div>
 
