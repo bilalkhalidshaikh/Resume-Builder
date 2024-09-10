@@ -605,10 +605,20 @@ button {
     color: #ecf0f1;
   }
 /* Form Titles - Ensure visibility in both light and dark modes */
-h2 {
-    color: #ecf0f1; /* Default for Dark Mode */
+/* Form Titles */
+h2, h3 {
+    color: #ecf0f1; /* Default Dark Mode */
     transition: color 0.3s ease;
 }
+
+.dark-mode h2, .dark-mode h3 {
+    color: #2c3e50; /* Title color in Dark Mode */
+}
+
+.light-mode h2, .light-mode h3 {
+    color: #2c3e50; /* Title color in Light Mode */
+}
+
 
 .dark-mode h2 {
     color: #2c3e50; /* Title color in Light Mode */
