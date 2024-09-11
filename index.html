@@ -24,20 +24,23 @@
           src="./src/assets/bilal.jpg"
             alt="Profile Picture"
             width="100%"
+            id="profilePicDisplay"
           />
+          <input type="file" id="profilePicInput" style="display: none;" accept="image/*" />
+
         </div>
         <div class="profile-details">
-          <h1>Muhammad Bilal Khalid</h1>
-          <p>GenAI Web3.0 Developer</p>
+          <h1 id="nameDisplay" contenteditable="true">Muhammad Bilal Khalid</h1>
+          <p id="titleDisplay" contenteditable="true">GenAI Web3.0 Developer</p>
           <!-- Social Media Icons -->
           <div class="social-links">
-            <a id="linkedinLink" href="https://www.linkedin.com/in/bilalkhalidshaikh/" target="_blank">
+            <a id="linkedinLink" contenteditable="true" href="https://www.linkedin.com/in/bilalkhalidshaikh/" target="_blank">
               <i class="fab fa-linkedin"></i>
             </a>
-            <a id="githubLink" href="https://github.com/bilalkhalidshaikh/" target="_blank">
+            <a id="githubLink" contenteditable="true" href="https://github.com/bilalkhalidshaikh/" target="_blank">
               <i class="fab fa-github"></i>
             </a>
-            <a id="whatsappLink" href="https://wa.me/923183052976" target="_blank">
+            <a id="whatsappLink" contenteditable="true" href="https://wa.me/923183052976" target="_blank">
               <i class="fab fa-whatsapp"></i>
             </a>
           </div>
@@ -62,30 +65,30 @@
       <!-- Skills Section -->
       <div class="section card glass" id="skillsSection">
         <h2>Skills</h2>
-        <div class="skill-container">
-          <button class="skill-btn"><i class="fas fa-code"></i> HTML</button>
-          <button class="skill-btn"><i class="fas fa-paint-brush"></i> CSS</button>
-          <button class="skill-btn"><i class="fas fa-laptop-code"></i> JavaScript</button>
-          <button class="skill-btn"><i class="fas fa-terminal"></i> TypeScript</button>
-          <button class="skill-btn"><i class="fas fa-css3"></i> Tailwind CSS</button>
-          <button class="skill-btn"><i class="fab fa-react"></i> React.js</button>
-          <button class="skill-btn"><i class="fab fa-node-js"></i> Node.js</button>
+        <div class="skill-container"  id="skillsContainer">
+          <button class="skill-btn"  contenteditable="true"><i class="fas fa-code"></i> HTML</button>
+          <button class="skill-btn"  contenteditable="true"><i class="fas fa-paint-brush"></i> CSS</button>
+          <button class="skill-btn"  contenteditable="true"><i class="fas fa-laptop-code"></i> JavaScript</button>
+          <button class="skill-btn"  contenteditable="true"><i class="fas fa-terminal"></i> TypeScript</button>
+          <button class="skill-btn"  contenteditable="true"><i class="fas fa-css3"></i> Tailwind CSS</button>
+          <button class="skill-btn"  contenteditable="true"><i class="fab fa-react"></i> React.js</button>
+          <button class="skill-btn"  contenteditable="true"><i class="fab fa-node-js"></i> Node.js</button>
         </div>
       </div>
       <!-- Education Section -->
       <div class="section card glass" id="educationSection">
         <h2>Education</h2>
-        <ul>
-          <li>Master of Computer Science, Universität Rostock</li>
-          <li>Bachelor of Information Technology, Berlin University</li>
+        <ul id="educationList">
+          <li contenteditable="true">Master of Computer Science, Universität Rostock</li>
+          <li contenteditable="true">Bachelor of Information Technology, Berlin University</li>
         </ul>
       </div>
       <!-- Experience Section -->
       <div class="section card glass" id="experienceSection">
         <h2>Experience</h2>
-        <div class="timeline">
+        <div class="timeline" id="experienceTimeline">
           <div class="timeline-item left">
-            <div class="content">
+            <div class="content" contenteditable="true">
               <h3>Software Developer at ABC Corp (2022 - Present)</h3>
               <p>
                 Developing full-stack applications and ensuring seamless user
@@ -94,7 +97,7 @@
             </div>
           </div>
           <div class="timeline-item right">
-            <div class="content">
+            <div class="content" contenteditable="true">
               <h3>Junior Developer at XYZ Solutions (2020 - 2022)</h3>
               <p>
                 Assisted in building enterprise-level software systems and

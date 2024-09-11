@@ -30,8 +30,91 @@ document.addEventListener("DOMContentLoaded", function () {
     const profilePicElement = document.querySelector(
         ".profile-pic img"
       ) as HTMLImageElement;
+      const nameDisplay = document.getElementById('nameDisplay') as HTMLElement;
+      const titleDisplay = document.getElementById('titleDisplay') as HTMLElement;
+      const linkedinLink = document.getElementById('linkedinLink') as HTMLElement;
+      const githubLink = document.getElementById('githubLink') as HTMLElement;
+      const whatsappLink = document.getElementById('whatsappLink') as HTMLElement;
+      const profilePicDisplay = document.getElementById('profilePicDisplay') as HTMLImageElement;
+      const profilePicInput = document.getElementById('profilePicInput') as HTMLInputElement;
+  
+    // Editable sections: Education, Experience, Skills
+    const educationList = document.getElementById('educationList') as HTMLElement;
+    const experienceTimeline = document.getElementById('experienceTimeline') as HTMLElement;
+    const skillsContainer = document.getElementById('skillsContainer') as HTMLElement;
+
     // Original state
     const originalProfilePic = './src/assets/bilal.jpg'; // Define your original image
+
+       // Enable profile image upload when clicking the image
+       profilePicDisplay.addEventListener('click', () => {
+        profilePicInput.click();
+    });
+      // Update profile image on file selection
+      profilePicInput.addEventListener('change', function () {
+        const file = profilePicInput.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                if (e.target?.result) {
+                    profilePicDisplay.src = e.target.result as string;
+                }
+            };
+            reader.readAsDataURL(file); // Convert image to Data URL and display it
+        }
+    });
+    
+    // Event listeners for content editable fields (name, title, social links)
+    nameDisplay.addEventListener('blur', updateResume);
+    titleDisplay.addEventListener('blur', updateResume);
+    linkedinLink.addEventListener('blur', updateResume);
+    githubLink.addEventListener('blur', updateResume);
+    whatsappLink.addEventListener('blur', updateResume);
+   // Event listeners for the education section
+   educationList.addEventListener('blur', updateEducation, true); // Capture edits
+   experienceTimeline.addEventListener('blur', updateExperience, true); // Capture edits
+   skillsContainer.addEventListener('blur', updateSkills, true); // Capture edits
+
+    function updateResume() {
+        const updatedName = nameDisplay.textContent?.trim() || 'Muhammad Bilal Khalid';
+        const updatedTitle = titleDisplay.textContent?.trim() || 'GenAI Web3.0 Developer';
+        const updatedLinkedIn = linkedinLink.getAttribute('href') || 'https://www.linkedin.com';
+        const updatedGitHub = githubLink.getAttribute('href') || 'https://github.com';
+        const updatedWhatsApp = whatsappLink.getAttribute('href') || '';
+
+        // Log changes or process them further
+        console.log("Updated Name: ", updatedName);
+        console.log("Updated Title: ", updatedTitle);
+        console.log("Updated LinkedIn: ", updatedLinkedIn);
+        console.log("Updated GitHub: ", updatedGitHub);
+        console.log("Updated WhatsApp: ", updatedWhatsApp);
+    }
+
+    // Update the education section when user finishes editing
+    function updateEducation() {
+        const educationEntries = Array.from(educationList.querySelectorAll('li')).map(li => li.textContent?.trim() || '');
+        console.log("Updated Education: ", educationEntries);
+    }
+
+    // Update the experience section when user finishes editing
+    function updateExperience() {
+        const experienceEntries = Array.from(experienceTimeline.querySelectorAll('.timeline-item')).map(item => ({
+            title: item.querySelector('h3')?.textContent?.trim(),
+            description: item.querySelector('p')?.textContent?.trim()
+        }));
+        console.log("Updated Experience: ", experienceEntries);
+    }
+
+    // Update the skills section when user finishes editing
+    function updateSkills() {
+        const skillEntries = Array.from(skillsContainer.querySelectorAll('.skill-btn')).map(button => button.textContent?.trim() || '');
+        console.log("Updated Skills: ", skillEntries);
+    }
+// });
+
+    // Additional functionality for other sections like Education, Experience, Skills would follow the same principle
+// });
+    
     let isDarkMode = true;
 
     // Function to restore original data on refresh

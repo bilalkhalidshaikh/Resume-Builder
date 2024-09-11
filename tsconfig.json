@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",                     
+    "target": "ES6", // or later version like ES2017, ES2020
+    "lib": ["dom", "es6"], // Ensure es6 features are included                
     "module": "commonjs",                
     "strict": true,                      
     "esModuleInterop": true,             

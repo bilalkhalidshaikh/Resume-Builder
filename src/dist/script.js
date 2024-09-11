@@ -1,36 +1,114 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", function () {
-    var toggleButton = document.getElementById('themeSwitchButton');
-    var body = document.body;
+    const toggleButton = document.getElementById('themeSwitchButton');
+    const body = document.body;
     // Section Buttons
-    var skillsBtn = document.getElementById('skillsBtn');
-    var educationBtn = document.getElementById('educationBtn');
-    var experienceBtn = document.getElementById('experienceBtn');
-    var contactBtn = document.getElementById('contactBtn');
-    var createResumeBtnSidebar = document.getElementById('createResumeBtnSidebar');
+    const skillsBtn = document.getElementById('skillsBtn');
+    const educationBtn = document.getElementById('educationBtn');
+    const experienceBtn = document.getElementById('experienceBtn');
+    const contactBtn = document.getElementById('contactBtn');
+    const createResumeBtnSidebar = document.getElementById('createResumeBtnSidebar');
     // Sections
-    var skillsSection = document.getElementById('skillsSection');
-    var educationSection = document.getElementById('educationSection');
-    var experienceSection = document.getElementById('experienceSection');
-    var contactSection = document.getElementById('contactSection');
-    var resumeFormContainer = document.getElementById('resumeFormContainer');
-    var createResumeMessage = document.getElementById('createResumeMessage');
-    var sidebar = document.querySelector('.sidebar');
-    var formtitles = document.querySelector('.form-titles');
-    var buttons = document.querySelectorAll('button');
-    var sidebarLinks = document.querySelectorAll('.sidebar ul li a');
-    var settingsIcon = document.querySelector('.floating-menu i');
-    var socialIcons = document.querySelectorAll('.social-links a');
-    var inputs = document.querySelectorAll('input, textarea');
-    var sectionTitles = document.querySelectorAll('h2');
-    var formLabels = document.querySelectorAll('label');
-    var formTitles = document.querySelectorAll('h2, h3');
-    var profilePicElement = document.querySelector(".profile-pic img");
+    const skillsSection = document.getElementById('skillsSection');
+    const educationSection = document.getElementById('educationSection');
+    const experienceSection = document.getElementById('experienceSection');
+    const contactSection = document.getElementById('contactSection');
+    const resumeFormContainer = document.getElementById('resumeFormContainer');
+    const createResumeMessage = document.getElementById('createResumeMessage');
+    const sidebar = document.querySelector('.sidebar');
+    const formtitles = document.querySelector('.form-titles');
+    const buttons = document.querySelectorAll('button');
+    const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
+    const settingsIcon = document.querySelector('.floating-menu i');
+    const socialIcons = document.querySelectorAll('.social-links a');
+    const inputs = document.querySelectorAll('input, textarea');
+    const sectionTitles = document.querySelectorAll('h2');
+    const formLabels = document.querySelectorAll('label');
+    const formTitles = document.querySelectorAll('h2, h3');
+    const profilePicElement = document.querySelector(".profile-pic img");
+    const nameDisplay = document.getElementById('nameDisplay');
+    const titleDisplay = document.getElementById('titleDisplay');
+    const linkedinLink = document.getElementById('linkedinLink');
+    const githubLink = document.getElementById('githubLink');
+    const whatsappLink = document.getElementById('whatsappLink');
+    const profilePicDisplay = document.getElementById('profilePicDisplay');
+    const profilePicInput = document.getElementById('profilePicInput');
+    // Editable sections: Education, Experience, Skills
+    const educationList = document.getElementById('educationList');
+    const experienceTimeline = document.getElementById('experienceTimeline');
+    const skillsContainer = document.getElementById('skillsContainer');
     // Original state
-    var originalProfilePic = './src/assets/bilal.jpg'; // Define your original image
-    var isDarkMode = true;
+    const originalProfilePic = './src/assets/bilal.jpg'; // Define your original image
+    // Enable profile image upload when clicking the image
+    profilePicDisplay.addEventListener('click', () => {
+        profilePicInput.click();
+    });
+    // Update profile image on file selection
+    profilePicInput.addEventListener('change', function () {
+        var _a;
+        const file = (_a = profilePicInput.files) === null || _a === void 0 ? void 0 : _a[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                var _a;
+                if ((_a = e.target) === null || _a === void 0 ? void 0 : _a.result) {
+                    profilePicDisplay.src = e.target.result;
+                }
+            };
+            reader.readAsDataURL(file); // Convert image to Data URL and display it
+        }
+    });
+    // Event listeners for content editable fields (name, title, social links)
+    nameDisplay.addEventListener('blur', updateResume);
+    titleDisplay.addEventListener('blur', updateResume);
+    linkedinLink.addEventListener('blur', updateResume);
+    githubLink.addEventListener('blur', updateResume);
+    whatsappLink.addEventListener('blur', updateResume);
+    // Event listeners for the education section
+    educationList.addEventListener('blur', updateEducation, true); // Capture edits
+    experienceTimeline.addEventListener('blur', updateExperience, true); // Capture edits
+    skillsContainer.addEventListener('blur', updateSkills, true); // Capture edits
+    function updateResume() {
+        var _a, _b;
+        const updatedName = ((_a = nameDisplay.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || 'Muhammad Bilal Khalid';
+        const updatedTitle = ((_b = titleDisplay.textContent) === null || _b === void 0 ? void 0 : _b.trim()) || 'GenAI Web3.0 Developer';
+        const updatedLinkedIn = linkedinLink.getAttribute('href') || 'https://www.linkedin.com';
+        const updatedGitHub = githubLink.getAttribute('href') || 'https://github.com';
+        const updatedWhatsApp = whatsappLink.getAttribute('href') || '';
+        // Log changes or process them further
+        console.log("Updated Name: ", updatedName);
+        console.log("Updated Title: ", updatedTitle);
+        console.log("Updated LinkedIn: ", updatedLinkedIn);
+        console.log("Updated GitHub: ", updatedGitHub);
+        console.log("Updated WhatsApp: ", updatedWhatsApp);
+    }
+    // Update the education section when user finishes editing
+    function updateEducation() {
+        const educationEntries = Array.from(educationList.querySelectorAll('li')).map(li => { var _a; return ((_a = li.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || ''; });
+        console.log("Updated Education: ", educationEntries);
+    }
+    // Update the experience section when user finishes editing
+    function updateExperience() {
+        const experienceEntries = Array.from(experienceTimeline.querySelectorAll('.timeline-item')).map(item => {
+            var _a, _b, _c, _d;
+            return ({
+                title: (_b = (_a = item.querySelector('h3')) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.trim(),
+                description: (_d = (_c = item.querySelector('p')) === null || _c === void 0 ? void 0 : _c.textContent) === null || _d === void 0 ? void 0 : _d.trim()
+            });
+        });
+        console.log("Updated Experience: ", experienceEntries);
+    }
+    // Update the skills section when user finishes editing
+    function updateSkills() {
+        const skillEntries = Array.from(skillsContainer.querySelectorAll('.skill-btn')).map(button => { var _a; return ((_a = button.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || ''; });
+        console.log("Updated Skills: ", skillEntries);
+    }
+    // });
+    // Additional functionality for other sections like Education, Experience, Skills would follow the same principle
+    // });
+    let isDarkMode = true;
     // Function to restore original data on refresh
-    window.addEventListener("beforeunload", function () {
+    window.addEventListener("beforeunload", () => {
         if (profilePicElement)
             profilePicElement.src = originalProfilePic || "";
         document.querySelector(".profile-details h1").textContent = 'Muhammad Bilal Khalid'; // Reset Name
@@ -41,20 +119,20 @@ document.addEventListener("DOMContentLoaded", function () {
         sidebar.style.backgroundColor = isDarkMode ? "#f7f7f7" : "#34495e";
         sidebar.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
         formtitles.style.color = isDarkMode ? "#f7f7f7" : "#2c3e50";
-        sidebarLinks.forEach(function (link) { link.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
-        buttons.forEach(function (button) {
+        sidebarLinks.forEach((link) => { link.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
+        buttons.forEach((button) => {
             button.style.backgroundColor = isDarkMode ? "#ffffff" : "#34495e";
             button.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
         });
-        socialIcons.forEach(function (icon) { icon.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
+        socialIcons.forEach((icon) => { icon.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
         resumeFormContainer.style.backgroundColor = isDarkMode ? "#bdc3c7" : "#2c3e50";
-        inputs.forEach(function (input) {
+        inputs.forEach((input) => {
             input.style.backgroundColor = isDarkMode ? "#ffffff" : "#2c3e50";
             input.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
         });
-        sectionTitles.forEach(function (title) { title.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
-        formTitles.forEach(function (title) { title.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
-        formLabels.forEach(function (label) { label.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
+        sectionTitles.forEach((title) => { title.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
+        formTitles.forEach((title) => { title.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
+        formLabels.forEach((label) => { label.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
         settingsIcon.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
         toggleButton.textContent = isDarkMode ? "Dark Mode" : "Light Mode";
         isDarkMode = !isDarkMode;
@@ -74,66 +152,66 @@ document.addEventListener("DOMContentLoaded", function () {
         resumeFormContainer.style.display = "none"; // Hide form
     }
     // Toggle Sections
-    skillsBtn.addEventListener("click", function () { hideAllSections(); skillsSection.style.display = "block"; });
-    educationBtn.addEventListener("click", function () { hideAllSections(); educationSection.style.display = "block"; });
-    experienceBtn.addEventListener("click", function () { hideAllSections(); experienceSection.style.display = "block"; });
-    contactBtn.addEventListener("click", function () { hideAllSections(); contactSection.style.display = "block"; });
+    skillsBtn.addEventListener("click", () => { hideAllSections(); skillsSection.style.display = "block"; });
+    educationBtn.addEventListener("click", () => { hideAllSections(); educationSection.style.display = "block"; });
+    experienceBtn.addEventListener("click", () => { hideAllSections(); experienceSection.style.display = "block"; });
+    contactBtn.addEventListener("click", () => { hideAllSections(); contactSection.style.display = "block"; });
     createResumeBtnSidebar.addEventListener("click", showResumeForm);
     // Floating Menu Toggle
-    var floatingMenu = document.getElementById("floatingMenu");
-    var menuContent = document.getElementById("menuContent");
-    floatingMenu.addEventListener("click", function () {
+    const floatingMenu = document.getElementById("floatingMenu");
+    const menuContent = document.getElementById("menuContent");
+    floatingMenu.addEventListener("click", () => {
         menuContent.style.display = menuContent.style.display === "block" ? "none" : "block";
     });
     // Milestone 3 - Target the Resume Form
-    var resumeForm = document.getElementById("resumeForm");
+    const resumeForm = document.getElementById("resumeForm");
     // Handle form submission
     resumeForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        var name = document.getElementById("nameInput").value;
-        var email = document.getElementById("emailInput").value;
+        const name = document.getElementById("nameInput").value;
+        const email = document.getElementById("emailInput").value;
         if (!name || !email) {
             alert("Please fill in all required fields.");
             return;
         }
-        var educationFields = document.querySelectorAll(".educationField");
-        var educationDetails = "";
-        educationFields.forEach(function (field) {
-            var degree = field.querySelector('[name="degree"]').value;
-            var institution = field.querySelector('[name="institution"]').value;
-            var year = field.querySelector('[name="year"]').value;
-            educationDetails += "<li>".concat(degree, " at ").concat(institution, ", ").concat(year, "</li>");
+        const educationFields = document.querySelectorAll(".educationField");
+        let educationDetails = "";
+        educationFields.forEach((field) => {
+            const degree = field.querySelector('[name="degree"]').value;
+            const institution = field.querySelector('[name="institution"]').value;
+            const year = field.querySelector('[name="year"]').value;
+            educationDetails += `<li>${degree} at ${institution}, ${year}</li>`;
         });
-        var experienceFields = document.querySelectorAll(".experienceField");
-        var experienceDetails = "";
-        experienceFields.forEach(function (field) {
-            var jobTitle = field.querySelector('[name="jobTitle"]').value;
-            var company = field.querySelector('[name="company"]').value;
-            var years = field.querySelector('[name="years"]').value;
-            experienceDetails += "<li>".concat(jobTitle, " at ").concat(company, " (").concat(years, ")</li>");
+        const experienceFields = document.querySelectorAll(".experienceField");
+        let experienceDetails = "";
+        experienceFields.forEach((field) => {
+            const jobTitle = field.querySelector('[name="jobTitle"]').value;
+            const company = field.querySelector('[name="company"]').value;
+            const years = field.querySelector('[name="years"]').value;
+            experienceDetails += `<li>${jobTitle} at ${company} (${years})</li>`;
         });
-        var skills = document.getElementById("skillsInput").value.split(",");
+        const skills = document.getElementById("skillsInput").value.split(",");
         // Dynamically update the resume section
-        var nameElement = document.querySelector(".profile-details h1");
-        var emailElement = document.querySelector(".profile-details p");
-        var educationElement = document.querySelector("#educationSection ul");
-        var experienceElement = document.querySelector("#experienceSection .timeline");
-        var skillsElement = document.querySelector(".skill-container");
-        var profilePicElement = document.querySelector(".profile-pic img");
+        const nameElement = document.querySelector(".profile-details h1");
+        const emailElement = document.querySelector(".profile-details p");
+        const educationElement = document.querySelector("#educationSection ul");
+        const experienceElement = document.querySelector("#experienceSection .timeline");
+        const skillsElement = document.querySelector(".skill-container");
+        const profilePicElement = document.querySelector(".profile-pic img");
         // Update resume fields
         nameElement.textContent = name;
         emailElement.textContent = email;
         educationElement.innerHTML = educationDetails;
         experienceElement.innerHTML = experienceDetails;
-        skillsElement.innerHTML = skills.map(function (skill) { return "<button class=\"skill-btn\">".concat(skill.trim(), "</button>"); }).join("");
+        skillsElement.innerHTML = skills.map((skill) => `<button class="skill-btn">${skill.trim()}</button>`).join("");
         profilePicElement.src = "./src/assets/profile.png"; // Update profile image as per your request
         clearForm(); // Clear form fields after submission
         showSkillsSection(); // Show Skills section after resume is generated
         window.scrollTo(0, 0); // Scroll to top after submission
     });
     function clearForm() {
-        var formFields = document.querySelectorAll('input, textarea');
-        formFields.forEach(function (field) {
+        const formFields = document.querySelectorAll('input, textarea');
+        formFields.forEach(field => {
             if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
                 field.value = '';
             }
