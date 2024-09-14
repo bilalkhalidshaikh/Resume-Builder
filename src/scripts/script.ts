@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const skillsContainer = document.getElementById('skillsContainer') as HTMLElement;
 
     // Original state
-    const originalProfilePic = './src/assets/bilal.jpg'; // Define your original image
+    const originalProfilePic = './src/assets/1.png'; // Define your original image
 
        // Enable profile image upload when clicking the image
        profilePicDisplay.addEventListener('click', () => {
@@ -76,8 +76,8 @@ document.addEventListener("DOMContentLoaded", function () {
    skillsContainer.addEventListener('blur', updateSkills, true); // Capture edits
 
     function updateResume() {
-        const updatedName = nameDisplay.textContent?.trim() || 'Muhammad Bilal Khalid';
-        const updatedTitle = titleDisplay.textContent?.trim() || 'GenAI Web3.0 Developer';
+        const updatedName = nameDisplay.textContent?.trim() || 'Rabia Ahmed';
+        const updatedTitle = titleDisplay.textContent?.trim() || 'Web Developer';
         const updatedLinkedIn = linkedinLink.getAttribute('href') || 'https://www.linkedin.com';
         const updatedGitHub = githubLink.getAttribute('href') || 'https://github.com';
         const updatedWhatsApp = whatsappLink.getAttribute('href') || '';
@@ -120,8 +120,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to restore original data on refresh
     window.addEventListener("beforeunload", () => {
         if (profilePicElement) profilePicElement.src = originalProfilePic || "";
-        (document.querySelector(".profile-details h1") as HTMLElement).textContent = 'Muhammad Bilal Khalid'; // Reset Name
-        (document.querySelector(".profile-details p") as HTMLElement).textContent = 'GenAI Web3.0 Developer'; // Reset Title
+        (document.querySelector(".profile-details h1") as HTMLElement).textContent = 'Rabia Ahmed'; // Reset Name
+        (document.querySelector(".profile-details p") as HTMLElement).textContent = ' Web Developer'; // Reset Title
     });
 
     toggleButton.addEventListener("click", function () {

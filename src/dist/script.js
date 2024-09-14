@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const experienceTimeline = document.getElementById('experienceTimeline');
     const skillsContainer = document.getElementById('skillsContainer');
     // Original state
-    const originalProfilePic = './src/assets/bilal.jpg'; // Define your original image
+    const originalProfilePic = './src/assets/1.png'; // Define your original image
     // Enable profile image upload when clicking the image
     profilePicDisplay.addEventListener('click', () => {
         profilePicInput.click();
@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
     skillsContainer.addEventListener('blur', updateSkills, true); // Capture edits
     function updateResume() {
         var _a, _b;
-        const updatedName = ((_a = nameDisplay.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || 'Muhammad Bilal Khalid';
-        const updatedTitle = ((_b = titleDisplay.textContent) === null || _b === void 0 ? void 0 : _b.trim()) || 'GenAI Web3.0 Developer';
+        const updatedName = ((_a = nameDisplay.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || 'Rabia Ahmed';
+        const updatedTitle = ((_b = titleDisplay.textContent) === null || _b === void 0 ? void 0 : _b.trim()) || 'Web Developer';
         const updatedLinkedIn = linkedinLink.getAttribute('href') || 'https://www.linkedin.com';
         const updatedGitHub = githubLink.getAttribute('href') || 'https://github.com';
         const updatedWhatsApp = whatsappLink.getAttribute('href') || '';
@@ -111,8 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("beforeunload", () => {
         if (profilePicElement)
             profilePicElement.src = originalProfilePic || "";
-        document.querySelector(".profile-details h1").textContent = 'Muhammad Bilal Khalid'; // Reset Name
-        document.querySelector(".profile-details p").textContent = 'GenAI Web3.0 Developer'; // Reset Title
+        document.querySelector(".profile-details h1").textContent = 'Rabia Ahmed'; // Reset Name
+        document.querySelector(".profile-details p").textContent = ' Web Developer'; // Reset Title
     });
     toggleButton.addEventListener("click", function () {
         body.classList.toggle("dark-mode");
