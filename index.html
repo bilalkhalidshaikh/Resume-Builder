@@ -1,201 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muhammad Bilal Khalid - Professional Resume</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="./src/styles/styles.css" />
-</head>
-<body>
-  <div class="wrapper">
-    <!-- Header -->
-    <div class="resume-header">
-      <div class="profile-info">
-        <div class="profile-pic">
-          <img
-          src="./src/assets/bilal.jpg"
-            alt="Profile Picture"
-            width="100%"
-            id="profilePicDisplay"
-          />
-          <input type="file" id="profilePicInput" style="display: none;" accept="image/*" />
-
-        </div>
-        <div class="profile-details">
-          <h1 id="nameDisplay" contenteditable="true">Muhammad Bilal Khalid</h1>
-          <p id="titleDisplay" contenteditable="true">GenAI Web3.0 Developer</p>
-          <!-- Social Media Icons -->
-          <div class="social-links">
-            <a id="linkedinLink" contenteditable="true" href="https://www.linkedin.com/in/bilalkhalidshaikh/" target="_blank">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a id="githubLink" contenteditable="true" href="https://github.com/bilalkhalidshaikh/" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-            <a id="whatsappLink" contenteditable="true" href="https://wa.me/923183052976" target="_blank">
-              <i class="fab fa-whatsapp"></i>
-            </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Bilal Khalid - Professional Resume</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/styles.css" />
+    <!-- Load html2pdf and jsPDF libraries first -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>    
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Header -->
+      <div class="resume-header">
+        <div class="profile-info">
+          <div class="profile-pic">
+            <img
+              src="./src/assets/bilal.jpg"
+              alt="Profile Picture"
+              width="100%"
+              id="profilePicDisplay"
+            />
+            <input
+              type="file"
+              id="profilePicInput"
+              style="display: none"
+              accept="image/*"
+            />
+          </div>
+          <div class="profile-details">
+            <h1 id="nameDisplay" contenteditable="true">
+              Muhammad Bilal Khalid
+            </h1>
+            <p id="titleDisplay" contenteditable="true">
+              GenAI Web3.0 Developer
+            </p>
+            <!-- Social Media Icons -->
+            <div class="social-links">
+              <a
+                id="linkedinLink"
+                href="https://www.linkedin.com/in/bilalkhalidshaikh/"
+                target="_blank"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                id="githubLink"
+                href="https://github.com/bilalkhalidshaikh/"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                id="whatsappLink"
+                href="https://wa.me/923183052976"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Sidebar for Section Navigation -->
-    <div class="sidebar">
-      <ul>
-        <li><a href="#" id="skillsBtn"><i class="fas fa-tools"></i> Skills</a></li>
-        <li><a href="#" id="educationBtn"><i class="fas fa-graduation-cap"></i> Education</a></li>
-        <li><a href="#" id="experienceBtn"><i class="fas fa-briefcase"></i> Experience</a></li>
-        <li><a href="#" id="contactBtn"><i class="fas fa-envelope"></i> Contact</a></li>
-        <li><a href="#" id="createResumeBtnSidebar"><i class="fas fa-file-alt"></i> Create Resume</a></li>
-      </ul>
-    </div>
-    
-
-    <!-- Content Area -->
-    <div class="content">
-      <!-- Skills Section -->
-      <div class="section card glass" id="skillsSection">
-        <h2>Skills</h2>
-        <div class="skill-container"  id="skillsContainer">
-          <button class="skill-btn"  contenteditable="true"><i class="fas fa-code"></i> HTML</button>
-          <button class="skill-btn"  contenteditable="true"><i class="fas fa-paint-brush"></i> CSS</button>
-          <button class="skill-btn"  contenteditable="true"><i class="fas fa-laptop-code"></i> JavaScript</button>
-          <button class="skill-btn"  contenteditable="true"><i class="fas fa-terminal"></i> TypeScript</button>
-          <button class="skill-btn"  contenteditable="true"><i class="fas fa-css3"></i> Tailwind CSS</button>
-          <button class="skill-btn"  contenteditable="true"><i class="fab fa-react"></i> React.js</button>
-          <button class="skill-btn"  contenteditable="true"><i class="fab fa-node-js"></i> Node.js</button>
-        </div>
-      </div>
-      <!-- Education Section -->
-      <div class="section card glass" id="educationSection">
-        <h2>Education</h2>
-        <ul id="educationList">
-          <li contenteditable="true">Master of Computer Science, Universität Rostock</li>
-          <li contenteditable="true">Bachelor of Information Technology, Berlin University</li>
+      <!-- Sidebar for Section Navigation -->
+      <div class="sidebar">
+        <ul>
+          <li>
+            <a href="#" id="skillsBtn"><i class="fas fa-tools"></i> Skills</a>
+          </li>
+          <li>
+            <a href="#" id="educationBtn"
+              ><i class="fas fa-graduation-cap"></i> Education</a
+            >
+          </li>
+          <li>
+            <a href="#" id="experienceBtn"
+              ><i class="fas fa-briefcase"></i> Experience</a
+            >
+          </li>
+          <li>
+            <a href="#" id="contactBtn"
+              ><i class="fas fa-envelope"></i> Contact</a
+            >
+          </li>
+          <li>
+            <a href="#" id="createResumeBtnSidebar"
+              ><i class="fas fa-file-alt"></i> Create Resume</a
+            >
+          </li>
         </ul>
       </div>
-      <!-- Experience Section -->
-      <div class="section card glass" id="experienceSection">
-        <h2>Experience</h2>
-        <div class="timeline" id="experienceTimeline">
-          <div class="timeline-item left">
-            <div class="content" contenteditable="true">
-              <h3>Software Developer at ABC Corp (2022 - Present)</h3>
-              <p>
-                Developing full-stack applications and ensuring seamless user
-                experiences for clients.
-              </p>
-            </div>
+
+      <!-- Content Area -->
+      <div class="content">
+        <!-- Skills Section -->
+        <div class="section card glass" id="skillsSection">
+          <h2>Skills</h2>
+          <div class="skill-container" id="skillsContainer">
+            <button class="skill-btn" contenteditable="true">
+              <i class="fas fa-code"></i> HTML
+            </button>
+            <button class="skill-btn" contenteditable="true">
+              <i class="fas fa-paint-brush"></i> CSS
+            </button>
+            <button class="skill-btn" contenteditable="true">
+              <i class="fas fa-laptop-code"></i> JavaScript
+            </button>
+            <button class="skill-btn" contenteditable="true">
+              <i class="fas fa-terminal"></i> TypeScript
+            </button>
+            <button class="skill-btn" contenteditable="true">
+              <i class="fas fa-css3"></i> Tailwind CSS
+            </button>
+            <button class="skill-btn" contenteditable="true">
+              <i class="fab fa-react"></i> React.js
+            </button>
+            <button class="skill-btn" contenteditable="true">
+              <i class="fab fa-node-js"></i> Node.js
+            </button>
           </div>
-          <div class="timeline-item right">
-            <div class="content" contenteditable="true">
-              <h3>Junior Developer at XYZ Solutions (2020 - 2022)</h3>
-              <p>
-                Assisted in building enterprise-level software systems and
-                contributed to the front-end development.
-              </p>
+        </div>
+        <!-- Education Section -->
+        <div class="section card glass" id="educationSection">
+          <h2>Education</h2>
+          <ul id="educationList">
+            <li contenteditable="true">
+              Master of Computer Science, Universität Rostock
+            </li>
+            <li contenteditable="true">
+              Bachelor of Information Technology, Berlin University
+            </li>
+          </ul>
+        </div>
+        <!-- Experience Section -->
+        <div class="section card glass" id="experienceSection">
+          <h2>Experience</h2>
+          <div class="timeline" id="experienceTimeline">
+            <div class="timeline-item left">
+              <div class="content" contenteditable="true">
+                <h3>Software Developer at ABC Corp (2022 - Present)</h3>
+                <p>
+                  Developing full-stack applications and ensuring seamless user
+                  experiences for clients.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item right">
+              <div class="content" contenteditable="true">
+                <h3>Junior Developer at XYZ Solutions (2020 - 2022)</h3>
+                <p>
+                  Assisted in building enterprise-level software systems and
+                  contributed to the front-end development.
+                </p>
+              </div>
             </div>
           </div>
         </div>
+        <!-- Contact Section -->
+        <div class="section card glass contact-form" id="contactSection">
+          <h2>Contact Me</h2>
+          <form
+            id="contactForm"
+            action="mailto:bilalkhalid.dev@outlook.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <div class="input-group">
+              <i class="fas fa-user"></i>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-comment"></i>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Your Message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <input type="submit" value="Send Message" />
+            <div class="validation-message" id="validationMessage"></div>
+          </form>
+        </div>
+
+        <!-- Button and Message to Create Resume -->
+        <div id="createResumeMessage" class="create-resume-message">
+          <h2>Wanna create your own professional resume?</h2>
+          <p>
+            No more worries! You're in the right place. Provide your details,
+            and I'll generate a professional, interactive resume just for you.
+            Don't worry about security—your data is safe with us!
+          </p>
+          <button id="showFormButton" class="resume-button">
+            Create Your Resume
+          </button>
+        </div>
+        <!-- Milestone 3 - Dynamic Resume Generation Form -->
+        <!-- Milestone 3 - Dynamic Resume Generation Form -->
+        <!-- Milestone 3 - Dynamic Resume Generation Form -->
+        <div id="resumeFormContainer" class="resume-form" style="display: none">
+          <h2 class="form-titles">Start Building Your Professional Profile</h2>
+          <form id="resumeForm">
+            <!-- Personal Information -->
+            <div>
+              <label for="name">Full Name:</label>
+              <input
+                type="text"
+                id="nameInput"
+                name="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div>
+              <label for="username">Username:</label>
+              <input
+                type="text"
+                id="usernameInput"
+                name="username"
+                placeholder="Enter your username"
+                required
+              />
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="emailInput"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div>
+              <label for="profilePicInput">Profile Picture:</label>
+              <input
+                type="file"
+                id="profilePicInput"
+                name="profilePicInput"
+                accept="image/*"
+                required
+              />
+            </div>
+
+            <!-- Social Links -->
+            <h3>Social Links</h3>
+            <div>
+              <label for="linkedinInput">LinkedIn:</label>
+              <input
+                type="url"
+                id="linkedinInput"
+                name="linkedin"
+                placeholder="LinkedIn Profile URL"
+                required
+              />
+            </div>
+            <div>
+              <label for="githubInput">GitHub:</label>
+              <input
+                type="url"
+                id="githubInput"
+                name="github"
+                placeholder="GitHub Profile URL"
+                required
+              />
+            </div>
+            <div>
+              <label for="whatsappInput">WhatsApp:</label>
+              <input
+                type="url"
+                id="whatsappInput"
+                name="whatsapp"
+                placeholder="WhatsApp Link"
+                required
+              />
+            </div>
+
+            <!-- Education Section -->
+            <h3>Education</h3>
+            <div id="educationFields">
+              <div class="educationField">
+                <input
+                  type="text"
+                  placeholder="Degree"
+                  name="degree"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Institution"
+                  name="institution"
+                  required
+                />
+                <input type="text" placeholder="Year" name="year" required />
+              </div>
+            </div>
+
+            <!-- Work Experience Section -->
+            <h3>Work Experience</h3>
+            <div id="experienceFields">
+              <div class="experienceField">
+                <input
+                  type="text"
+                  placeholder="Job Title"
+                  name="jobTitle"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Company"
+                  name="company"
+                  required
+                />
+                <input type="text" placeholder="Years" name="years" required />
+              </div>
+            </div>
+
+            <!-- Skills Section -->
+            <h3>Skills</h3>
+            <input
+              type="text"
+              id="skillsInput"
+              name="skills"
+              placeholder="Enter skills (comma separated)"
+              required
+            />
+
+            <!-- Buttons after Form Submission -->
+            <div class="form-buttons">
+              <button type="submit" id="generateResumeBtn">
+                Generate My Resume
+              </button>
+              <button id="downloadBtn" style="display: none">
+                Download Resume
+              </button>
+              <button id="shareBtn" style="display: none">
+                See and Share Your Resume
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Milestone 3 - Dynamic Resume Generation Form -->
       </div>
-      <!-- Contact Section -->
-      <div class="section card glass contact-form" id="contactSection">
-        <h2>Contact Me</h2>
-        <form id="contactForm" action="mailto:bilalkhalid.dev@outlook.com" method="post" enctype="text/plain">
-          <div class="input-group">
-            <i class="fas fa-user"></i>
-            <input type="text" id="name" name="name" placeholder="Your Name" required />
-          </div>
-          <div class="input-group">
-            <i class="fas fa-envelope"></i>
-            <input type="email" id="email" name="email" placeholder="Your Email" required />
-          </div>
-          <div class="input-group">
-            <i class="fas fa-comment"></i>
-            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-          </div>
-          <input type="submit" value="Send Message" />
-          <div class="validation-message" id="validationMessage"></div>
-        </form>
-      </div>
-
-      <!-- Button and Message to Create Resume -->
-<div id="createResumeMessage" class="create-resume-message">
-  <h2>Wanna create your own professional resume?</h2>
-  <p>No more worries! You're in the right place. Provide your details, and I'll generate a professional, interactive resume just for you. Don't worry about security—your data is safe with us!</p>
-  <button id="showFormButton" class="resume-button">Create Your Resume</button>
-</div>
-      <!-- Milestone 3 - Dynamic Resume Generation Form -->
-  <!-- Milestone 3 - Dynamic Resume Generation Form -->
-<!-- Milestone 3 - Dynamic Resume Generation Form -->
-<div id="resumeFormContainer" class="resume-form" style="display: none;">
-  <h2 class="form-titles">Start Building Your Professional Profile</h2>
-  <form id="resumeForm">
-    <!-- Personal Information -->
-    <div>
-      <label for="name">Full Name:</label>
-      <input type="text" id="nameInput" name="name" placeholder="Enter your name" required />
-    </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="emailInput" name="email" placeholder="Enter your email" required />
     </div>
 
-    <!-- Education Section -->
-    <h3>Education</h3>
-    <div id="educationFields">
-      <div class="educationField">
-        <input type="text" placeholder="Degree" name="degree" required />
-        <input type="text" placeholder="Institution" name="institution" required />
-        <input type="text" placeholder="Year" name="year" required />
+    <!-- Floating Menu at Bottom Left -->
+    <div class="floating-menu" id="floatingMenu">
+      <i class="fas fa-cog"></i>
+      <div class="menu-content" id="menuContent">
+        <button id="themeSwitchButton">Light Mode</button>
+        <button id="toggleSectionsButton">Hide Sections</button>
       </div>
     </div>
 
-    <!-- Work Experience Section -->
-    <h3>Work Experience</h3>
-    <div id="experienceFields">
-      <div class="experienceField">
-        <input type="text" placeholder="Job Title" name="jobTitle" required />
-        <input type="text" placeholder="Company" name="company" required />
-        <input type="text" placeholder="Years" name="years" required />
-      </div>
-    </div>
-
-    <!-- Skills Section -->
-    <h3>Skills</h3>
-    <input type="text" id="skillsInput" name="skills" placeholder="Enter skills (comma separated)" required />
-
-    <!-- Single Button to Generate Resume -->
-    <button type="submit" id="generateResumeBtn">Generate My Resume</button>
-  </form>
-</div>
-
-
-          <!-- Milestone 3 - Dynamic Resume Generation Form -->
-
-  </div>
-
-    </div>
-  </div>
-
-  <!-- Floating Menu at Bottom Left -->
-  <div class="floating-menu" id="floatingMenu">
-    <i class="fas fa-cog"></i>
-    <div class="menu-content" id="menuContent">
-      <button id="themeSwitchButton">Light Mode</button>
-      <button id="toggleSectionsButton">Hide Sections</button>
-    </div>
-  </div>
-
-  <script src="./src/dist/script.js"></script>
-</body>
+    <script src="./src/dist/script.js"></script>
+  </body>
 </html>

@@ -1,50 +1,50 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", function () {
-    const toggleButton = document.getElementById('themeSwitchButton');
+    const toggleButton = document.getElementById("themeSwitchButton");
     const body = document.body;
     // Section Buttons
-    const skillsBtn = document.getElementById('skillsBtn');
-    const educationBtn = document.getElementById('educationBtn');
-    const experienceBtn = document.getElementById('experienceBtn');
-    const contactBtn = document.getElementById('contactBtn');
-    const createResumeBtnSidebar = document.getElementById('createResumeBtnSidebar');
+    const skillsBtn = document.getElementById("skillsBtn");
+    const educationBtn = document.getElementById("educationBtn");
+    const experienceBtn = document.getElementById("experienceBtn");
+    const contactBtn = document.getElementById("contactBtn");
+    const createResumeBtnSidebar = document.getElementById("createResumeBtnSidebar");
     // Sections
-    const skillsSection = document.getElementById('skillsSection');
-    const educationSection = document.getElementById('educationSection');
-    const experienceSection = document.getElementById('experienceSection');
-    const contactSection = document.getElementById('contactSection');
-    const resumeFormContainer = document.getElementById('resumeFormContainer');
-    const createResumeMessage = document.getElementById('createResumeMessage');
-    const sidebar = document.querySelector('.sidebar');
-    const formtitles = document.querySelector('.form-titles');
-    const buttons = document.querySelectorAll('button');
-    const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
-    const settingsIcon = document.querySelector('.floating-menu i');
-    const socialIcons = document.querySelectorAll('.social-links a');
-    const inputs = document.querySelectorAll('input, textarea');
-    const sectionTitles = document.querySelectorAll('h2');
-    const formLabels = document.querySelectorAll('label');
-    const formTitles = document.querySelectorAll('h2, h3');
+    const skillsSection = document.getElementById("skillsSection");
+    const educationSection = document.getElementById("educationSection");
+    const experienceSection = document.getElementById("experienceSection");
+    const contactSection = document.getElementById("contactSection");
+    const resumeFormContainer = document.getElementById("resumeFormContainer");
+    const createResumeMessage = document.getElementById("createResumeMessage");
+    const sidebar = document.querySelector(".sidebar");
+    const formtitles = document.querySelector(".form-titles");
+    const buttons = document.querySelectorAll("button");
+    const sidebarLinks = document.querySelectorAll(".sidebar ul li a");
+    const settingsIcon = document.querySelector(".floating-menu i");
+    const socialIcons = document.querySelectorAll(".social-links a");
+    const inputs = document.querySelectorAll("input, textarea");
+    const sectionTitles = document.querySelectorAll("h2");
+    const formLabels = document.querySelectorAll("label");
+    const formTitles = document.querySelectorAll("h2, h3");
     const profilePicElement = document.querySelector(".profile-pic img");
-    const nameDisplay = document.getElementById('nameDisplay');
-    const titleDisplay = document.getElementById('titleDisplay');
-    const linkedinLink = document.getElementById('linkedinLink');
-    const githubLink = document.getElementById('githubLink');
-    const whatsappLink = document.getElementById('whatsappLink');
-    const profilePicDisplay = document.getElementById('profilePicDisplay');
-    const profilePicInput = document.getElementById('profilePicInput');
+    const nameDisplay = document.getElementById("nameDisplay");
+    const titleDisplay = document.getElementById("titleDisplay");
+    const linkedinLink = document.getElementById("linkedinLink");
+    const githubLink = document.getElementById("githubLink");
+    const whatsappLink = document.getElementById("whatsappLink");
+    const profilePicDisplay = document.getElementById("profilePicDisplay");
+    const profilePicInput = document.getElementById("profilePicInput");
     // Editable sections: Education, Experience, Skills
-    const educationList = document.getElementById('educationList');
-    const experienceTimeline = document.getElementById('experienceTimeline');
-    const skillsContainer = document.getElementById('skillsContainer');
+    const educationList = document.getElementById("educationList");
+    const experienceTimeline = document.getElementById("experienceTimeline");
+    const skillsContainer = document.getElementById("skillsContainer");
     // Original state
-    const originalProfilePic = './src/assets/bilal.jpg'; // Define your original image
+    const originalProfilePic = "./src/assets/bilal.jpg"; // Define your original image
     // Enable profile image upload when clicking the image
-    profilePicDisplay.addEventListener('click', () => {
+    profilePicDisplay.addEventListener("click", () => {
         profilePicInput.click();
     });
     // Update profile image on file selection
-    profilePicInput.addEventListener('change', function () {
+    profilePicInput.addEventListener("change", function () {
         var _a;
         const file = (_a = profilePicInput.files) === null || _a === void 0 ? void 0 : _a[0];
         if (file) {
@@ -59,22 +59,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
     // Event listeners for content editable fields (name, title, social links)
-    nameDisplay.addEventListener('blur', updateResume);
-    titleDisplay.addEventListener('blur', updateResume);
-    linkedinLink.addEventListener('blur', updateResume);
-    githubLink.addEventListener('blur', updateResume);
-    whatsappLink.addEventListener('blur', updateResume);
+    nameDisplay.addEventListener("blur", updateResume);
+    titleDisplay.addEventListener("blur", updateResume);
+    linkedinLink.addEventListener("blur", updateResume);
+    githubLink.addEventListener("blur", updateResume);
+    whatsappLink.addEventListener("blur", updateResume);
     // Event listeners for the education section
-    educationList.addEventListener('blur', updateEducation, true); // Capture edits
-    experienceTimeline.addEventListener('blur', updateExperience, true); // Capture edits
-    skillsContainer.addEventListener('blur', updateSkills, true); // Capture edits
+    educationList.addEventListener("blur", updateEducation, true); // Capture edits
+    experienceTimeline.addEventListener("blur", updateExperience, true); // Capture edits
+    skillsContainer.addEventListener("blur", updateSkills, true); // Capture edits
     function updateResume() {
         var _a, _b;
-        const updatedName = ((_a = nameDisplay.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || 'Muhammad Bilal Khalid';
-        const updatedTitle = ((_b = titleDisplay.textContent) === null || _b === void 0 ? void 0 : _b.trim()) || 'GenAI Web3.0 Developer';
-        const updatedLinkedIn = linkedinLink.getAttribute('href') || 'https://www.linkedin.com';
-        const updatedGitHub = githubLink.getAttribute('href') || 'https://github.com';
-        const updatedWhatsApp = whatsappLink.getAttribute('href') || '';
+        const updatedName = ((_a = nameDisplay.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || "Muhammad Bilal Khalid";
+        const updatedTitle = ((_b = titleDisplay.textContent) === null || _b === void 0 ? void 0 : _b.trim()) || "GenAI Web3.0 Developer";
+        const updatedLinkedIn = linkedinLink.getAttribute("href") || "https://www.linkedin.com";
+        const updatedGitHub = githubLink.getAttribute("href") || "https://github.com";
+        const updatedWhatsApp = whatsappLink.getAttribute("href") || "";
         // Log changes or process them further
         console.log("Updated Name: ", updatedName);
         console.log("Updated Title: ", updatedTitle);
@@ -84,23 +84,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     // Update the education section when user finishes editing
     function updateEducation() {
-        const educationEntries = Array.from(educationList.querySelectorAll('li')).map(li => { var _a; return ((_a = li.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || ''; });
+        const educationEntries = Array.from(educationList.querySelectorAll("li")).map((li) => { var _a; return ((_a = li.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || ""; });
         console.log("Updated Education: ", educationEntries);
     }
     // Update the experience section when user finishes editing
     function updateExperience() {
-        const experienceEntries = Array.from(experienceTimeline.querySelectorAll('.timeline-item')).map(item => {
+        const experienceEntries = Array.from(experienceTimeline.querySelectorAll(".timeline-item")).map((item) => {
             var _a, _b, _c, _d;
             return ({
-                title: (_b = (_a = item.querySelector('h3')) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.trim(),
-                description: (_d = (_c = item.querySelector('p')) === null || _c === void 0 ? void 0 : _c.textContent) === null || _d === void 0 ? void 0 : _d.trim()
+                title: (_b = (_a = item.querySelector("h3")) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.trim(),
+                description: (_d = (_c = item.querySelector("p")) === null || _c === void 0 ? void 0 : _c.textContent) === null || _d === void 0 ? void 0 : _d.trim(),
             });
         });
         console.log("Updated Experience: ", experienceEntries);
     }
     // Update the skills section when user finishes editing
     function updateSkills() {
-        const skillEntries = Array.from(skillsContainer.querySelectorAll('.skill-btn')).map(button => { var _a; return ((_a = button.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || ''; });
+        const skillEntries = Array.from(skillsContainer.querySelectorAll(".skill-btn")).map((button) => { var _a; return ((_a = button.textContent) === null || _a === void 0 ? void 0 : _a.trim()) || ""; });
         console.log("Updated Skills: ", skillEntries);
     }
     // });
@@ -111,28 +111,42 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("beforeunload", () => {
         if (profilePicElement)
             profilePicElement.src = originalProfilePic || "";
-        document.querySelector(".profile-details h1").textContent = 'Muhammad Bilal Khalid'; // Reset Name
-        document.querySelector(".profile-details p").textContent = 'GenAI Web3.0 Developer'; // Reset Title
+        document.querySelector(".profile-details h1").textContent =
+            "Muhammad Bilal Khalid"; // Reset Name
+        document.querySelector(".profile-details p").textContent =
+            "GenAI Web3.0 Developer"; // Reset Title
     });
     toggleButton.addEventListener("click", function () {
         body.classList.toggle("dark-mode");
         sidebar.style.backgroundColor = isDarkMode ? "#f7f7f7" : "#34495e";
         sidebar.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
         formtitles.style.color = isDarkMode ? "#f7f7f7" : "#2c3e50";
-        sidebarLinks.forEach((link) => { link.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
+        sidebarLinks.forEach((link) => {
+            link.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
+        });
         buttons.forEach((button) => {
             button.style.backgroundColor = isDarkMode ? "#ffffff" : "#34495e";
             button.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
         });
-        socialIcons.forEach((icon) => { icon.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
-        resumeFormContainer.style.backgroundColor = isDarkMode ? "#bdc3c7" : "#2c3e50";
+        socialIcons.forEach((icon) => {
+            icon.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
+        });
+        resumeFormContainer.style.backgroundColor = isDarkMode
+            ? "#bdc3c7"
+            : "#2c3e50";
         inputs.forEach((input) => {
             input.style.backgroundColor = isDarkMode ? "#ffffff" : "#2c3e50";
             input.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
         });
-        sectionTitles.forEach((title) => { title.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
-        formTitles.forEach((title) => { title.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
-        formLabels.forEach((label) => { label.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1"; });
+        sectionTitles.forEach((title) => {
+            title.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
+        });
+        formTitles.forEach((title) => {
+            title.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
+        });
+        formLabels.forEach((label) => {
+            label.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
+        });
         settingsIcon.style.color = isDarkMode ? "#2c3e50" : "#ecf0f1";
         toggleButton.textContent = isDarkMode ? "Dark Mode" : "Light Mode";
         isDarkMode = !isDarkMode;
@@ -152,34 +166,60 @@ document.addEventListener("DOMContentLoaded", function () {
         resumeFormContainer.style.display = "none"; // Hide form
     }
     // Toggle Sections
-    skillsBtn.addEventListener("click", () => { hideAllSections(); skillsSection.style.display = "block"; });
-    educationBtn.addEventListener("click", () => { hideAllSections(); educationSection.style.display = "block"; });
-    experienceBtn.addEventListener("click", () => { hideAllSections(); experienceSection.style.display = "block"; });
-    contactBtn.addEventListener("click", () => { hideAllSections(); contactSection.style.display = "block"; });
+    skillsBtn.addEventListener("click", () => {
+        hideAllSections();
+        skillsSection.style.display = "block";
+    });
+    educationBtn.addEventListener("click", () => {
+        hideAllSections();
+        educationSection.style.display = "block";
+    });
+    experienceBtn.addEventListener("click", () => {
+        hideAllSections();
+        experienceSection.style.display = "block";
+    });
+    contactBtn.addEventListener("click", () => {
+        hideAllSections();
+        contactSection.style.display = "block";
+    });
     createResumeBtnSidebar.addEventListener("click", showResumeForm);
     // Floating Menu Toggle
     const floatingMenu = document.getElementById("floatingMenu");
     const menuContent = document.getElementById("menuContent");
     floatingMenu.addEventListener("click", () => {
-        menuContent.style.display = menuContent.style.display === "block" ? "none" : "block";
+        menuContent.style.display =
+            menuContent.style.display === "block" ? "none" : "block";
     });
     // Milestone 3 - Target the Resume Form
     const resumeForm = document.getElementById("resumeForm");
+    const downloadButton = document.getElementById("downloadBtn");
+    const shareButton = document.getElementById("shareBtn");
+    const resumeContainer = document.querySelector(".resume-header");
+    // Handle form submission
     // Handle form submission
     resumeForm.addEventListener("submit", function (event) {
+        var _a;
         event.preventDefault();
-        const name = document.getElementById("nameInput").value;
-        const email = document.getElementById("emailInput").value;
-        if (!name || !email) {
-            alert("Please fill in all required fields.");
-            return;
-        }
+        // Collect form data
+        const name = document.getElementById("nameInput")
+            .value;
+        const email = document.getElementById("emailInput")
+            .value;
+        // const profilePic = (document.getElementById("profilePicInput") as HTMLInputElement).files?.[0];
+        const profilePic = (_a = document.getElementById("profilePicInput").files) === null || _a === void 0 ? void 0 : _a[0];
+        const username = document.getElementById("usernameInput").value;
+        const linkedin = document.getElementById("linkedinInput").value;
+        const github = document.getElementById("githubInput")
+            .value;
+        const whatsapp = document.getElementById("whatsappInput").value;
+        const skills = document.getElementById("skillsInput").value.split(",");
         const educationFields = document.querySelectorAll(".educationField");
         let educationDetails = "";
         educationFields.forEach((field) => {
             const degree = field.querySelector('[name="degree"]').value;
             const institution = field.querySelector('[name="institution"]').value;
-            const year = field.querySelector('[name="year"]').value;
+            const year = field.querySelector('[name="year"]')
+                .value;
             educationDetails += `<li>${degree} at ${institution}, ${year}</li>`;
         });
         const experienceFields = document.querySelectorAll(".experienceField");
@@ -187,38 +227,218 @@ document.addEventListener("DOMContentLoaded", function () {
         experienceFields.forEach((field) => {
             const jobTitle = field.querySelector('[name="jobTitle"]').value;
             const company = field.querySelector('[name="company"]').value;
-            const years = field.querySelector('[name="years"]').value;
+            const years = field.querySelector('[name="years"]')
+                .value;
             experienceDetails += `<li>${jobTitle} at ${company} (${years})</li>`;
         });
-        const skills = document.getElementById("skillsInput").value.split(",");
-        // Dynamically update the resume section
-        const nameElement = document.querySelector(".profile-details h1");
-        const emailElement = document.querySelector(".profile-details p");
-        const educationElement = document.querySelector("#educationSection ul");
-        const experienceElement = document.querySelector("#experienceSection .timeline");
-        const skillsElement = document.querySelector(".skill-container");
-        const profilePicElement = document.querySelector(".profile-pic img");
-        // Update resume fields
-        nameElement.textContent = name;
-        emailElement.textContent = email;
-        educationElement.innerHTML = educationDetails;
-        experienceElement.innerHTML = experienceDetails;
-        skillsElement.innerHTML = skills.map((skill) => `<button class="skill-btn">${skill.trim()}</button>`).join("");
-        profilePicElement.src = "./src/assets/profile.png"; // Update profile image as per your request
+        // After submission, display the buttons for downloading and sharing the resume
+        downloadButton.style.display = "inline-block";
+        shareButton.style.display = "inline-block";
+        // Download Resume Action
+        // Handle form submission and generate PDF
+        downloadButton.addEventListener("click", () => {
+            generatePDF(name, email, skills, educationDetails, experienceDetails, linkedin, github, whatsapp, profilePic);
+        });
+        // Share Resume Action
+        // Share Resume Action
+        shareButton.addEventListener("click", () => {
+            openInNewTab(name, email, username, skills, educationDetails, experienceDetails, linkedin, github, whatsapp, profilePic);
+        });
         clearForm(); // Clear form fields after submission
-        showSkillsSection(); // Show Skills section after resume is generated
-        window.scrollTo(0, 0); // Scroll to top after submission
     });
+    // Function to generate PDF with the exact same design and layout as the web version
+    // Use pdfmake to generate the PDF
+    // Use pdfmake to generate the PDF
+    // Declare pdfMake globally to prevent TypeScript errors
+    // Ensure image updates properly in both resume generation and PDF download
+    function generatePDF(name, email, skills, educationDetails, experienceDetails, linkedin, github, whatsapp, profilePic) {
+        const defaultImage = "./src/assets/bilal.jpg"; // Default image
+        const docDefinition = {
+            content: [
+                {
+                    columns: [
+                        {
+                            image: profilePic ? '' : defaultImage, // Default image if no profile picture
+                            width: 100,
+                        },
+                        [
+                            { text: name, fontSize: 20, bold: true, margin: [10, 0] },
+                            { text: email, margin: [10, 0] },
+                        ]
+                    ]
+                },
+                { text: 'Skills', style: 'header' },
+                { ul: skills.map(skill => skill.trim()) },
+                { text: 'Education', style: 'header' },
+                { ul: [educationDetails] },
+                { text: 'Experience', style: 'header' },
+                { ul: [experienceDetails] },
+                { text: 'Social Links', style: 'header' },
+                { ul: [`LinkedIn: ${linkedin}`, `GitHub: ${github}`, `WhatsApp: ${whatsapp}`] }
+            ],
+            styles: {
+                header: { fontSize: 18, bold: true, margin: [0, 10, 0, 10] }
+            }
+        };
+        if (profilePic) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                var _a;
+                const imageBase64 = (_a = e.target) === null || _a === void 0 ? void 0 : _a.result;
+                if (docDefinition.content[0] && 'columns' in docDefinition.content[0]) {
+                    docDefinition.content[0].columns[0].image = imageBase64;
+                }
+                pdfMake.createPdf(docDefinition).download(`${name}-resume.pdf`);
+            };
+            reader.readAsDataURL(profilePic);
+        }
+        else {
+            pdfMake.createPdf(docDefinition).download(`${name}-resume.pdf`);
+        }
+    }
+    // Function to open the generated resume in a new tab with the same structure and style
+    // Open generated resume in a new tab, ensuring the sidebar and image are correct
+    function openInNewTab(name, email, username, skills, educationDetails, experienceDetails, linkedin, github, whatsapp, profilePic) {
+        const shareLink = `https://bilal-resume-builder.vercel.app/${username}`;
+        const defaultImage = "./src/assets/profile.png"; // Default image if no profile picture
+        const profilePicUrl = profilePic
+            ? URL.createObjectURL(profilePic)
+            : defaultImage;
+        const newWindow = window.open("", "_blank");
+        newWindow === null || newWindow === void 0 ? void 0 : newWindow.document.write(`
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>${name}'s Resume</title>
+        <link rel="stylesheet" href="./src/styles/styles.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+      </head>
+      <body>
+        <div class="wrapper">
+          <div class="resume-header">
+            <div class="profile-info">
+              <div class="profile-pic">
+                <img src="${profilePicUrl}" alt="Profile Picture" width="100%" />
+              </div>
+              <div class="profile-details">
+                <h1 id="nameDisplay" contenteditable="true">${name}</h1>
+                <p id="titleDisplay" contenteditable="true">${username}</p>
+                <div class="social-links">
+                  <a href="${linkedin}" target="_blank"><i class="fab fa-linkedin"></i></a>
+                  <a href="${github}" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="${whatsapp}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Sidebar for Navigation -->
+          <div class="sidebar">
+            <ul>
+              <li onclick="showSection('skillsSection')">Skills</li>
+              <li onclick="showSection('educationSection')">Education</li>
+              <li onclick="showSection('experienceSection')">Experience</li>
+              <li onclick="toggleTheme()">Toggle Theme</li>
+            </ul>
+          </div>
+  
+          <!-- Main Content -->
+          <div class="content">
+            <div class="section card glass" id="skillsSection">
+              <h2>Skills</h2>
+              <ul>${skills.map(skill => `<li contenteditable="true">${skill.trim()}</li>`).join('')}</ul>
+            </div>
+  
+            <div class="section card glass" id="educationSection" style="display:none;">
+              <h2>Education</h2>
+              <ul contenteditable="true">${educationDetails}</ul>
+            </div>
+  
+            <div class="section card glass" id="experienceSection" style="display:none;">
+              <h2>Experience</h2>
+              <ul contenteditable="true">${experienceDetails}</ul>
+            </div>
+  
+            <div class="section card glass">
+              <h2>Social Links</h2>
+              <ul>
+                <li>LinkedIn: <a href="${linkedin}" target="_blank">${linkedin}</a></li>
+                <li>GitHub: <a href="${github}" target="_blank">${github}</a></li>
+                <li>WhatsApp: <a href="${whatsapp}" target="_blank">${whatsapp}</a></li>
+              </ul>
+            </div>
+          </div>
+  
+          <!-- Buttons to Download and Share Resume -->
+          <div class="resume-buttons">
+            <button onclick="downloadPDF()">Download as PDF</button>
+            <button onclick="navigator.clipboard.writeText('${shareLink}'); alert('Shareable link copied to clipboard!');">Share Resume</button>
+          </div>
+        </div>
+  
+        <script>
+          // Sidebar functionality to switch between sections
+          function showSection(sectionId) {
+            document.getElementById("skillsSection").style.display = "none";
+            document.getElementById("educationSection").style.display = "none";
+            document.getElementById("experienceSection").style.display = "none";
+            document.getElementById(sectionId).style.display = "block";
+          }
+  
+          // Toggle dark and light mode
+          function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+          }
+  
+          // Download resume as PDF
+          function downloadPDF() {
+            const docDefinition = {
+              content: [
+                {
+                  columns: [
+                    { image: '${profilePicUrl}', width: 100 },
+                    [
+                      { text: '${name}', fontSize: 20, bold: true, margin: [10, 0] },
+                      { text: '${email}', margin: [10, 0] },
+                    ],
+                  ],
+                },
+                { text: 'Skills', style: 'header' },
+                { ul: ${JSON.stringify(skills)} },
+                { text: 'Education', style: 'header' },
+                { ul: [${JSON.stringify(educationDetails)}] },
+                { text: 'Experience', style: 'header' },
+                { ul: [${JSON.stringify(experienceDetails)}] },
+                { text: 'Social Links', style: 'header' },
+                { ul: [
+                    'LinkedIn: ${linkedin}',
+                    'GitHub: ${github}',
+                    'WhatsApp: ${whatsapp}'
+                  ] }
+              ],
+              styles: { header: { fontSize: 18, bold: true, margin: [0, 10, 0, 10] } }
+            };
+            pdfMake.createPdf(docDefinition).download('${name}-resume.pdf');
+          }
+        </script>
+      </body>
+      </html>
+    `);
+        newWindow === null || newWindow === void 0 ? void 0 : newWindow.document.close();
+    }
     function clearForm() {
-        const formFields = document.querySelectorAll('input, textarea');
-        formFields.forEach(field => {
-            if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
-                field.value = '';
+        const formFields = document.querySelectorAll("input, textarea");
+        formFields.forEach((field) => {
+            if (field instanceof HTMLInputElement ||
+                field instanceof HTMLTextAreaElement) {
+                field.value = "";
             }
         });
     }
     function showSkillsSection() {
         hideAllSections();
-        skillsSection.style.display = 'block';
+        skillsSection.style.display = "block";
     }
 });
